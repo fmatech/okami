@@ -1,0 +1,365 @@
+:root {
+  --bg: #050505;
+  --panel: rgba(15, 15, 18, 0.9);
+  --panel-strong: #101014;
+  --text: #f5f7fb;
+  --muted: #b8c0cc;
+  --orange: #ff7a1a;
+  --magenta: #ff2a95;
+  --cyan: #2fe3ff;
+  --line: rgba(255, 255, 255, 0.1);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(47, 227, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 20% 20%, rgba(255, 42, 149, 0.12), transparent 28%),
+    linear-gradient(180deg, #070709 0%, #050505 60%, #0b0b0f 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--orange);
+  color: #111;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(18px);
+  background: rgba(5, 5, 5, 0.72);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.brand img {
+  width: 172px;
+  height: auto;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--text);
+}
+
+.hero {
+  padding: 5rem 0 3rem;
+}
+
+.hero-grid,
+.approach-grid,
+.contact-shell {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-copy h1,
+.section-heading h2,
+.approach-grid h2,
+.contact-shell h2,
+.hero-panel h2 {
+  margin: 0;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  max-width: 12ch;
+}
+
+.hero-text,
+.hero-panel p,
+.info-card p,
+.approach-list p,
+.contact-shell p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.eyebrow,
+.panel-label,
+.contact-label,
+.signal-title {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  margin-bottom: 1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.9rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--orange), #ff964a);
+  color: #111;
+  box-shadow: 0 18px 40px rgba(255, 122, 26, 0.28);
+}
+
+.button-secondary {
+  border: 1px solid rgba(47, 227, 255, 0.35);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.hero-points {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-points li {
+  position: relative;
+  padding-left: 1.2rem;
+  color: var(--text);
+}
+
+.hero-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--cyan), var(--magenta));
+}
+
+.hero-panel,
+.info-card,
+.contact-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(17, 18, 24, 0.92), rgba(11, 11, 15, 0.92));
+  border: 1px solid var(--line);
+  border-radius: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  min-height: 100%;
+  padding: 2rem;
+}
+
+.glow {
+  position: absolute;
+  width: 14rem;
+  height: 14rem;
+  filter: blur(48px);
+  opacity: 0.22;
+  border-radius: 999px;
+}
+
+.glow-cyan {
+  top: -4rem;
+  right: -3rem;
+  background: var(--cyan);
+}
+
+.glow-magenta {
+  bottom: -5rem;
+  left: -4rem;
+  background: var(--magenta);
+}
+
+.signal-card {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.signal-note {
+  color: var(--muted);
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.section-heading {
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.info-card,
+.contact-card {
+  padding: 1.5rem;
+}
+
+.info-card h3,
+.approach-list h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.approach-list {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.approach-list article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.approach-list span {
+  color: var(--orange);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.contact-card a {
+  display: inline-block;
+  margin: 0.25rem 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.contact-card a:hover,
+.contact-card a:focus-visible {
+  color: var(--cyan);
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+@media (max-width: 860px) {
+  .hero-grid,
+  .approach-grid,
+  .contact-shell,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 3.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    width: min(100% - 1.2rem, 1120px);
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.3rem, 12vw, 4rem);
+  }
+
+  .hero-panel,
+  .info-card,
+  .contact-card,
+  .approach-list article {
+    border-radius: 1.2rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
